@@ -110,7 +110,7 @@
      @if($this->equipoTeleco->exists)
      <x-jet-confirmation-modal wire:model="deleteE">
      
-     <x-slot name="title"> ¿Estas Seguro?</x-slot>
+     <x-slot name="title"> ¿Estas Seguro que quieres realizar este movimiento?</x-slot>
      
      <x-slot name="content">Realmente quieres eliminar el  Equipo: {{$this->equipoTeleco->nombre}}  </x-slot>   
      
