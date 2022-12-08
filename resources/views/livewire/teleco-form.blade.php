@@ -69,23 +69,10 @@
                          
                           </div>
 
-                          <div class="col-span-6 sm:col-span-4 relative">
-                            @if($imagen)  
-                            <x-jet-danger-button wire:click="$set('imagen')" class="absolute bottom-2 right-2 ">{{__('Cambiar Imagen')}}</x-jet-danger-button>
-                              <img src="{{$imagen->temporaryUrl()}}"  class="border-2 rouded" alt="">
-                            @elseif($equipoTeleco->imagen)
-                            <x-jet-label for="imagen" :value="__('cambiar imagen del equipo')" class="cursor-pointer inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" />
-                            <img src="{{Storage::disk('public')->url($equipoTeleco->imagen)}}"  class="border-2 rouded" alt="">
-
-                            @else
-                             
-                          <div class="h-20 bg-gray-50 border-2 border-dashed rounded flex items-center  justify-center ">
-                          <x-jet-label for="imagen" :value="__('Imagen del equipo')" class="cursor-pointer inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" />
-                          
-                         </div>
-
-                         @endif
-                         <x-jet-input wire:model="imagen" class="hidden" id="imagen" type="file" />
+                          <div class="col-span-6 sm:col-span-4 ">
+                            
+                              <x-select-imagen wire:model="imagen" :imagen="$imagen" existing="$equipoTeleco->imagen"/>
+                            
                          <x-jet-input-error for="imagen" class="mt-2"/>
                          
                           </div> 
@@ -110,7 +97,7 @@
      @if($this->equipoTeleco->exists)
      <x-jet-confirmation-modal wire:model="deleteE">
      
-     <x-slot name="title"> ¿Estas Seguro que quieres realizar este movimiento?</x-slot>
+     <x-slot name="title"> ¿Estas Seguro ?</x-slot>
      
      <x-slot name="content">Realmente quieres eliminar el  Equipo: {{$this->equipoTeleco->nombre}}  </x-slot>   
      

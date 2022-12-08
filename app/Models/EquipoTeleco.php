@@ -2,19 +2,21 @@
 
 namespace App\Models;
 
-use Dotenv\Store\StoreBuilder;
-use Illuminate\Contracts\Cache\Store;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Console\StorageLinkCommand;
-use Illuminate\Session\Store as SessionStore;
+
 use Illuminate\Support\Facades\Storage;
-use League\Flysystem\StorageAttributes;
-use Livewire\WithFileUploads;
+
+
+
+use App\Models\CategoriaTeleco;
+
+
+
 
 class EquipoTeleco extends Model
 { 
-  use WithFileUploads;
+
    protected $guarded=[];
    use HasFactory;
    public function CategoriaTeleco(){
@@ -26,7 +28,7 @@ class EquipoTeleco extends Model
 
    public function imagenUrl(){
 
-    return Storage::url($this->imagen);
-   }
+    return Storage::disk('public')->url($this->imagen); 
+  }
 
 }

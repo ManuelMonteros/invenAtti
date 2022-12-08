@@ -83,7 +83,12 @@ class TelecoForm extends Component
         
 
        $this->validate();
-
+        if($this->imagen){
+       if($oldimagen=$this->equipoTeleco->imagen)
+       {
+        Storage::disk('public')->delete($oldimagen)
+       }
+      }
        $this->equipoTeleco->imagen= $this->imagen->Store('/','public');
        
       $this->equipoTeleco->save();

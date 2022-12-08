@@ -28,7 +28,7 @@ Route::middleware([
     Route::get('/Equipo-Teleco/index',EquipoTelecos::class)->name('EquipoT.index');
     Route::get('/Equipo-Teleco/create',TelecoForm::class)->name('EquipoT.create');
     Route::get('/Equipo-Teleco/{EquipoTeleco}',TelecoShow::class)->name('EquipoT.show');
-    Route::get('/Equipo-Teleco/{equipoTeleco}/edit',TelecoForm::class)->name('EquipoT.edit');
+    Route::get('/Equipo-Teleco/{equipoTeleco:id}/edit',TelecoForm::class)->name('EquipoT.edit');
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
