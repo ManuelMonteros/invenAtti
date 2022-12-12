@@ -84,11 +84,11 @@ class TelecoForm extends Component
 
        $this->validate();
         if($this->imagen){
-       if($oldimagen=$this->equipoTeleco->imagen)
+          if($oldimagen=$this->equipoTeleco->imagen)
        {
-        Storage::disk('public')->delete($oldimagen)
+        Storage::disk('public')->delete($oldimagen);
        }
-      }
+        
        $this->equipoTeleco->imagen= $this->imagen->Store('/','public');
        
       $this->equipoTeleco->save();
@@ -96,7 +96,8 @@ class TelecoForm extends Component
        session()->flash('status','El Equipo se guardo con existo');
 
         $this->redirectRoute('EquipoT.index');
-    } 
+    }
+  }
 
     public function delete(){
       Storage::disk('public')->delete($this->equipoTeleco->imagen);

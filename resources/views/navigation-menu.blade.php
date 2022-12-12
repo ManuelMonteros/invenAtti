@@ -98,7 +98,7 @@
                                     </x-jet-dropdown-link>
 
                                     
-                                        <x-jet-dropdown-link href="{{ route('teams.create') }}">
+                                        <x-jet-dropdown-link href="{{route('GestionT.index')}}">
                                             {{ __('Gestionar inventario ') }}
                                         </x-jet-dropdown-link>
                              

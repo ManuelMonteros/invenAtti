@@ -2,7 +2,9 @@
 use App\Http\Livewire\EquipoTelecos;
 use App\Http\Livewire\TelecoForm;
 use App\Http\Livewire\TelecoShow;
+use App\Http\Livewire\GestionTelecos;
 use App\Models\EquipoTeleco;
+use App\Models\GestionTeleco;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +31,7 @@ Route::middleware([
     Route::get('/Equipo-Teleco/create',TelecoForm::class)->name('EquipoT.create');
     Route::get('/Equipo-Teleco/{EquipoTeleco}',TelecoShow::class)->name('EquipoT.show');
     Route::get('/Equipo-Teleco/{equipoTeleco:id}/edit',TelecoForm::class)->name('EquipoT.edit');
+    Route::get('/Gestion-Teleco/index',GestionTelecos::class)->name('GestionT.index');
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
