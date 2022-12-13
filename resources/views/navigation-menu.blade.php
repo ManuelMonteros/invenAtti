@@ -98,7 +98,7 @@
                                     </x-jet-dropdown-link>
 
                                     
-                                        <x-jet-dropdown-link href="{{route('GestionT.index')}}">
+                                        <x-jet-dropdown-link href="{{route('GestionT.table')}}">
                                             {{ __('Gestionar inventario ') }}
                                         </x-jet-dropdown-link>
                              

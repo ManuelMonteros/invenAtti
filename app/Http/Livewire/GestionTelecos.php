@@ -11,7 +11,7 @@ use Illuminate\Validation\Rule as ValidationRule;
 
 class GestionTelecos extends Component
 {
-    public $selectCategoria=null,$selectequipo=null;
+    public $selectCategoria=null,$equipo_id=null;
     public $equipoTeleco=null;
    public $newCategoriaT;
    public GestionTeleco $gestionTeleco;
@@ -25,7 +25,7 @@ class GestionTelecos extends Component
      'gestionTeleco.ubicacion' =>['required','min:2'],
      'gestionTeleco.observacion' =>['required','min:2,max:200'],
      'gestionTeleco.actualizacion' =>['required','min:2,max:200'],
-     'gestionTeleco.categoriaT_id' =>['required'],
+     'gestionTeleco.equipo_id' =>['required'],
      'newCategoriaT.nombre'=>[ValidationRule::requiredIf($this->newCategoriaT instanceof CategoriaTeleco),'unique:categoria_telecos,nombre' ]
     
     ];

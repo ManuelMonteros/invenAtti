@@ -3,6 +3,7 @@ use App\Http\Livewire\EquipoTelecos;
 use App\Http\Livewire\TelecoForm;
 use App\Http\Livewire\TelecoShow;
 use App\Http\Livewire\GestionTelecos;
+use App\Http\Livewire\TelecoTable;
 use App\Models\EquipoTeleco;
 use App\Models\GestionTeleco;
 use Illuminate\Support\Facades\Route;
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::middleware([
@@ -31,7 +32,9 @@ Route::middleware([
     Route::get('/Equipo-Teleco/create',TelecoForm::class)->name('EquipoT.create');
     Route::get('/Equipo-Teleco/{EquipoTeleco}',TelecoShow::class)->name('EquipoT.show');
     Route::get('/Equipo-Teleco/{equipoTeleco:id}/edit',TelecoForm::class)->name('EquipoT.edit');
-    Route::get('/Gestion-Teleco/index',GestionTelecos::class)->name('GestionT.index');
+    Route::get('/Gestion-Teleco/create',GestionTelecos::class)->name('GestionT.create');
+    Route::get('/Gestion-Teleco/table',TelecoTable::class)->name('GestionT.table');
+    Route::get('/Gestion-Teleco/{gestionTelecos:id}',GestionTelecos::class)->name('GestionT.edit');
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');

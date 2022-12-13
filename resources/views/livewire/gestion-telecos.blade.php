@@ -22,9 +22,8 @@
     
           <div class="col-span-6 sm:col-span-4">
      
-                
-               <label for="">Categoria telecomunicacion</label>
-               <select wire:model="selectCategoria">
+               <x-jet-label for="serial" :value="__('categorias')" />
+               <select wire:model="selectCategoria" id="categorias" class="rounded mt-1 block w-full">
                  <option value="">==Categorias==</option>
                  @foreach ($categoriaT as $key)
                  <option value="{{$key->id}}">{{$key->nombre}}</option>  
@@ -36,13 +35,14 @@
  <div class="col-span-6 sm:col-span-4">
 
        
-      <label for="">Marca y modelo</label>
-      <select wire:model="selectequipo">
+     <x-jet-label for="serial" :value="__('Marca y modelo')" />
+      <select wire:model="gestionTeleco.equipo_id" class="rounded mt-1 block w-full">
         <option value="">==Marca y modelo==</option>
         @foreach ($equipoTeleco as $key)
         <option value="{{$key->id}}">{{$key->marca}}&nbsp;{{$key->modelo}}</option>  
         @endforeach
    </select>
+   <x-jet-input-error for="gestionTeleco.equipo_id" class="mt-2"/>
 </div>
 @endif     
 
@@ -106,7 +106,17 @@
      
      
      
-     
+                                         <x-slot name="actions">
+                                             @if($this->gestionTeleco->exists)
+                                          <x-jet-danger-button wire:click="$set('deleteE', true)" class="mr-auto">
+                                             {{__('Eliminar')}}     
+                                        </x-jet-danger-button>   
+                                        @endif
+                                         <x-jet-button>
+                                             {{__('Guardar')}}
+                                         </x-jet-button>
+                                        
+                                        </x-slot>
      
      
      
