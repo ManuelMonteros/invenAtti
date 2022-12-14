@@ -15,12 +15,14 @@ class GestionTelecos extends Component
     public $equipoTeleco=null;
    public $newCategoriaT;
    public GestionTeleco $gestionTeleco;
-    protected function rules(){ return
+    
+   
+   protected function rules(){ return
        
         [ 
     
         
-     'gestionTeleco.serial' =>['required','min:2'],
+     'gestionTeleco.serial' =>['required','min:2','unique:gestion_telecos,serial'],
      'gestionTeleco.status'=>['required','min:2'],
      'gestionTeleco.ubicacion' =>['required','min:2'],
      'gestionTeleco.observacion' =>['required','min:2,max:200'],
