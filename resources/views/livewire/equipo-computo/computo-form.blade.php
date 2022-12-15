@@ -25,14 +25,17 @@
 
 
                         <x-slot name="form">
-                          <div class="col-span-6 sm:col-span-4">
-                        <x-jet-label for="nombre" :value="__('Nombre del Equipo')" />
-                         
-                        <x-jet-input wire:model="equipoComputo.nombre" class="mt-1 block w-full" id="nombre" type="text" />
-                        <x-jet-input-error for="equipoComputo.nombre" class="mt-2"/>
-                        
-                         </div>
-                         
+                         <div class="col-span-6 sm:col-span-4">
+
+                             
+                              <x-jet-label for="categoriaC_id" :value="__('tipo de Equipo')" />
+                               <div class="flex space-x-1 mt-1">
+                              <x-select wire:model="equipoComputo.categoriaC_id" :options="$CategoriaComputo" class=" block w-full" id="categoriaC_id" placeholder="Seleciona una Categoria"  />
+                              <x-jet-secondary-button wire:click="open_categiraC">+</x-jet-secondary-button>
+                              </div>
+                              <x-jet-input-error for="equipoComputo.categoriaC_id" class="mt-2"/>
+                            
+                               </div>
                          <div class="col-span-6 sm:col-span-4">
                         <x-jet-label for="marca" :value="__('Marca del Equipo')" />
                          
@@ -41,17 +44,7 @@
                         
                          </div>
 
-                         <div class="col-span-6 sm:col-span-4">
-
-                             
-                        <x-jet-label for="categoriaC_id" :value="__('tipo de Equipo')" />
-                         <div class="flex space-x-1 mt-1">
-                        <x-select wire:model="equipoComputo.categoriaC_id" :options="$CategoriaComputo" class=" block w-full" id="categoriaC_id" placeholder="Seleciona una Categoria"  />
-                        <x-jet-secondary-button wire:click="open_categiraC">+</x-jet-secondary-button>
-                        </div>
-                        <x-jet-input-error for="equipoTeleco.categoriaC_id" class="mt-2"/>
                       
-                         </div>
 
                          <div class="col-span-6 sm:col-span-4">
                         <x-jet-label for="modelo" :value="__('Modelo del Equipo')" />
@@ -71,18 +64,17 @@
 
                          <div class="col-span-6 sm:col-span-4 ">
                            
-                             <x-select-imagen wire:model="imagen" :imagen="$imagen" existing="$equipoTeleco->imagen"/>
+                             <x-select-imagen wire:model="imagen" :imagen="$imagen" existing="$equipoComputo->imagen"/>
                            
                         <x-jet-input-error for="imagen" class="mt-2"/>
                         
                          </div> 
                          
                         <x-slot name="actions">
-                             @if($this->equipoCompunto->exists)
-                          <x-jet-danger-button wire:click="$set('deleteE', true)" class="mr-auto">
+                                                   <x-jet-danger-button wire:click="$set('deleteE', true)" class="mr-auto">
                              {{__('Eliminar')}}     
                         </x-jet-danger-button>   
-                        @endif
+                    
                          <x-jet-button>
                              {{__('Guardar')}}
                          </x-jet-button>

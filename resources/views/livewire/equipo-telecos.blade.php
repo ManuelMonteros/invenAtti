@@ -60,7 +60,14 @@
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div class="flex-shrink-0 h-10 w-10">
-                                                <img class="h-10 w-10 rounded-full" src="{{$equipoTeleco->imagenUrl()}}" alt="{{$equipoTeleco->mombre}}">
+                                                @if($equipoTeleco->file_extension=='jpg')
+                                                  <img class="h-10 w-10 rounded-full" src="{{asset('storage').'/app/public/'.$equipoTeleco->imagen}}" alt="">
+                                                 @else
+                                                 
+                                                 <img class="h-10 w-10 rounded-full" src="{{asset($equipoTeleco->imagen)}}" alt="">
+
+                                                 @endif
+                                            
                                             </div>
                                             <div class="ml-4">
                                                 <div class="text-sm font-medium text-gray-900">

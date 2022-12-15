@@ -19,6 +19,7 @@ class EquipoTeleco extends Model
 
    protected $guarded=[];
    use HasFactory;
+   protected $fillable=['nombre','marca','modelo','imagen','detalles'];
    public function CategoriaTeleco(){
    
      return $this->belongsTo(CategoriaTeleco::class);

@@ -45,7 +45,7 @@
    <x-jet-input-error for="gestionTeleco.equipo_id" class="mt-2"/>
 </div>
 @endif     
-
+<x-jet-secondary-button wire:click="open_categiraT">+</x-jet-secondary-button>
      
           <div class="col-span-6 sm:col-span-4">
                <x-jet-label for="serial" :value="__('Serial del Equipo')" />

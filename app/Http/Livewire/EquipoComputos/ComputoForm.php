@@ -26,11 +26,11 @@ class ComputoForm extends Component
            [ 
        
            'imagen' =>[Rule::requiredIf(!$this->equipoComputo->imagen), Rule::when($this->imagen, ['image','max:2048'])],
-        'equipoComputo.nombre' =>['required','min:2'],
+       
         'equipoComputo.marca'=>['required','min:2'],
         'equipoComputo.modelo' =>['required','min:2'],
         'equipoComputo.detalles' =>['required','min:2,max:200'],
-        'equipoComputo.categoriaT_id' =>['required'],
+        'equipoComputo.categoriaC_id' =>['required'],
         'newCategoriaC.nombre'=>[Rule::requiredIf($this->newCategoriaC instanceof CategoriaComputo),'unique:categoria_computos,nombre' ]
        
        ];
@@ -60,10 +60,10 @@ class ComputoForm extends Component
       
          public function saveCategoriaC(){
    
-           $this->validateOnly('newCategoriaT.nombre');
-           $this->newCategoriaT->save();
+           $this->validateOnly('newCategoriaC.nombre');
+           $this->newCategoriaC->save();
            $this->equipoComputo->categoriaC_id= $this->newCategoriaC->id;
-           $this->close_categiraT();
+           $this->close_categiraC();
    
          }
    

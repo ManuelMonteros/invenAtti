@@ -89,7 +89,7 @@ class TelecoForm extends Component
         Storage::disk('public')->delete($oldimagen);
        }
         
-       $this->equipoTeleco->imagen= $this->imagen->Store('/','public');
+       $this->equipoTeleco->imagen= 'storage/'.$this->imagen->store('Teleco','public');
        
       $this->equipoTeleco->save();
        
